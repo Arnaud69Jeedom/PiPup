@@ -11,3 +11,11 @@
 # 24/01/2022
 
 - Gestion du type Message
+
+# 17/03/2022
+
+- Paramétrage global et par actions définies
+
+# 19/03/2022
+
+- Ajout du paramétrage backgroundColor
