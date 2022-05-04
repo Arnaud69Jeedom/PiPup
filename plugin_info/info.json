@@ -29,5 +29,7 @@
     "diy",
     "mobile",
     "v4"
-  ]
+  ],
+  "changelog_beta": "https://github.com/Arnaud69Jeedom/pipup/blob/beta/docs/#language#/changelog.md",
+  "documentation_beta": "https://github.com/Arnaud69Jeedom/pipup/blob/beta/docs/#language#/index.md"
 }
