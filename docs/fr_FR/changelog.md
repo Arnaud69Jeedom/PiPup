@@ -19,3 +19,7 @@
 # 19/03/2022
 
 - Ajout du paramétrage backgroundColor
+
+# 01/01/2023
+
+- Création libre de nouvelles commandes
