@@ -54,11 +54,6 @@ class pipup extends eqLogic
                 }
             }
 
-            //  $cmd->setLogicalId($cmd->getName());
-            //  log::add('pipup', 'debug', 'foreach cmd getEqLogic_id: '.$this->getLogicalId());
-            //  log::add('pipup', 'debug', 'foreach cmd getId: '.$this->getId());                 
-            //  log::add('pipup', 'debug', 'foreach cmd setEqLogic_id: '.$this->getLogicalId());
-
             $cmd->setType('action');
             $cmd->setSubType('message');
 
@@ -71,7 +66,8 @@ class pipup extends eqLogic
         // pipup_action
         log::add('pipup', 'debug', 'postSave eqLogic');
 
-        $cmdsCount = count($this->getCmd());
+        $cmds = $this->getCmd();
+        $cmdsCount = count($cmds);
 
         if ($cmdsCount === 0) {
             // notify
@@ -139,6 +135,22 @@ class pipupCmd extends cmd
 
     public function preSave()
     {
+        if ($this->getLogicalId() !== 'alert' && $this->getLogicalId() !== 'notify') {
+            log::add('pipup', 'debug', 'preSave cmd '.$this->getLogicalId());
+
+            $name = $this->getName();
+
+            $this->setIsVisible(1);
+            $this->setName($name);
+            $this->setLogicalId($name);
+
+            $this->setConfiguration('titleColor', "#000000");
+            $this->setConfiguration('messageColor', "#000000");
+            $this->setConfiguration('backgroundColor', "#ffffff");
+        }
+
+        $this->setType('action');
+        $this->setSubType('message');
     }
 
 
