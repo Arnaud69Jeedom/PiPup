@@ -28,7 +28,7 @@ $("#table_cmd").sortable({
 
 /* Fonction permettant l'affichage des commandes dans l'équipement */
 function addCmdToTable(_cmd) {
-  console.log("_cmd:", _cmd);
+  //console.log("_cmd:", _cmd);
   if (!isset(_cmd)) {
     var _cmd = {configuration: {}};
   }
@@ -98,20 +98,16 @@ function addCmdToTable(_cmd) {
 }
   
 
-$(".eqLogic").delegate(".listCmdInfo", 'click', function () {
-  var el = $(this).closest('.form-group').find('.eqLogicAttr');
-  jeedom.cmd.getSelectModal({
-    cmd: {
-      type: 'info'
-    }
-  }, function (result) {
-    if (el.attr('data-concat') == 1) {
-      el.atCaret('insert', result.human);
-    } else {
-      el.value(result.human);
-    }
-  });
-});
+// $(".eqLogic").delegate(".listCmdInfo", 'click', function () {
+//   var el = $(this).closest('.form-group').find('.eqLogicAttr');
+//   jeedom.cmd.getSelectModal({
+//     cmd: {
+//       type: 'info'
+//     }
+//   }, function (result) {
+//     el.value(result.human);
+//   });
+// });
 
 // $(".eqLogic").delegate(".listCmdAction", 'click', function () {
 //     //console.log("--------- listCmdAction");
@@ -161,7 +157,7 @@ function printEqLogic(_eqLogic) {
   if (isset(_eqLogic.configuration)) {
     if (isset(_eqLogic.configuration.Pipup)) {
       for (var i in _eqLogic.configuration.Pipup) {
-        console.log("printEqLogic.addConfPipups", _eqLogic.configuration.Pipup[i]);
+        //console.log("printEqLogic.addConfPipups", _eqLogic.configuration.Pipup[i]);
         addConfPipups(_eqLogic.configuration.Pipup[i]);
       }
     }
@@ -171,7 +167,7 @@ function printEqLogic(_eqLogic) {
   if (isset(_eqLogic.configuration)) {
     if (isset(_eqLogic.configuration.action)) {
       for (var i in _eqLogic.configuration.action) {
-        console.log("printEqLogic.addConfActions", _eqLogic.configuration.action[i]);
+        //console.log("printEqLogic.addConfActions", _eqLogic.configuration.action[i]);
         addConfActions(_eqLogic.configuration.action[i]);
       }
     }
