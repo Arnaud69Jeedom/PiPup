@@ -4,22 +4,26 @@
 >
 >Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte.
 
-# 23/01/2022
+# 02/01/2023
 
-- Première version
+- Adaptation Jeedom v4.4
 
-# 24/01/2022
+# 01/01/2023
 
-- Gestion du type Message
-
-# 17/03/2022
-
-- Paramétrage global et par actions définies
+- Création libre de nouvelles commandes
 
 # 19/03/2022
 
 - Ajout du paramétrage backgroundColor
 
-# 01/01/2023
+# 17/03/2022
 
-- Création libre de nouvelles commandes
+- Paramétrage global et par actions définies
+
+# 24/01/2022
+
+- Gestion du type Message
+
+# 23/01/2022
+
+- Première version
