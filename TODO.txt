@@ -1,4 +1,1 @@
 Liste des choses à faire :
-
-BUG :
-- commande supplémentaire ne garde par la couleur perso

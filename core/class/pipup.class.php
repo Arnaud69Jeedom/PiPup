@@ -143,10 +143,6 @@ class pipupCmd extends cmd
             $this->setIsVisible(1);
             $this->setName($name);
             $this->setLogicalId($name);
-
-            $this->setConfiguration('titleColor', "#000000");
-            $this->setConfiguration('messageColor', "#000000");
-            $this->setConfiguration('backgroundColor', "#ffffff");
         }
 
         $this->setType('action');
