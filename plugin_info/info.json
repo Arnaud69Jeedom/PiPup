@@ -3,10 +3,10 @@
   "name": "PiPup",
   "author": "Arnaud_69",
   "description":{
-    "fr_FR": "Plugin template pour les notifications sur Android TV via PiPup"
+    "fr_FR": "Plugin pour les notifications sur Android TV via PiPup"
   },
   "licence": "AGPL",
-  "require": "4.1",
+  "require": "4.2",
   "version": "1.0",
   "category": "communication",
   "hasDependency": false,
