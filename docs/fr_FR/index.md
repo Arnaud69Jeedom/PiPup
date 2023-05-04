@@ -77,3 +77,12 @@ Les commandes sont personnalisables :
       https://jeannedarcroye.files.wordpress.com/2019/01/attention-2.gif
       Un GIF animé peut être choisi.
 
+Note : Il est possible de jouer sur la transparence (du fond par exemple)
+Les valeurs "color" sont dans le format [AA]RRGGBB où le canal alpha (transparence) est optionelle.
+Exemple : la valeur du fond peut-être #FFFFFF (blanc) ou #CCFFFFFF (blanc avec transparence)
+
+Note 2 : Pour trouver la couleur souhaité au format HEX, il est possible d'utiliser des site web du genre :
+https://www.peko-step.com/fr/tool/tfcolor.html
+
+Note 3 : Il est possible de faire juste apparaitre l'icône.
+Il suffit de ne pas renseigner le titre le message.
