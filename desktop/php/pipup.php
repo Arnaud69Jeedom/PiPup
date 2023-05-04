@@ -154,7 +154,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">{{Duration (secondes)}}</label>
+                                    <label class="col-sm-3 control-label">{{Durée}}<sub>(s)</sub></label>
                                     <div class="col-sm-2">
                                         <div class="input-group">
                                             <input type="number" class="eqLogicAttr form-control tooltips" 
@@ -225,9 +225,10 @@ $eqLogics = eqLogic::byType($plugin->getId());
                         <thead>
                             <tr>
                                 <th style="width:210px;">{{Nom}}</th>
-                                <th style="width:120px;">{{Title Color}}</th>
-                                <th style="width:120px;">{{Message Color}}</th>
-                                <th style="width:120px;">{{Background Color}}</th>
+                                <th style="width:210px;">{{Duréee}}</th>
+                                <th style="width:120px;">{{Couleur titre}}</th>
+                                <th style="width:120px;">{{Couleur message}}</th>
+                                <th style="width:120px;">{{Coulor du fond}}</th>
                                 <th>{{URL}}</th>
                                 <th style="width:150px;">{{Action}}</th>
                             </tr>

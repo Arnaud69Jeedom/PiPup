@@ -177,7 +177,7 @@ class pipupCmd extends cmd
         }
         unset($iptv);
 
-        // IP TV
+        // duration
         log::add('pipup', 'debug', ' Récupération duration', __FILE__);
         $duration = $eqlogic->getConfiguration('duration');
         if ($duration != '') {
@@ -288,6 +288,13 @@ class pipupCmd extends cmd
         $tmp->backgroundColor = $cmd->getConfiguration('backgroundColor');
         if (empty($tmp->backgroundColor)) {
             $tmp->backgroundColor = "#ffffff";
+        }
+
+        $duration = $cmd->getConfiguration('duration');
+        if ($duration != '') {
+            if (filter_var($duration, FILTER_VALIDATE_INT)) {
+                $tmp->duration = $duration;
+            }
         }
 
         if (!empty($cmd->getConfiguration('url'))) {

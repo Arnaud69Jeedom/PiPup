@@ -50,7 +50,7 @@ Cet onglet permet de définir l'équipement :
 ![Général](../images/Onglet_2.png)
 
 - IP TV : IP de l'équipement où afficher les notifications
-- Duration : Durée en seconde pendant laquelle la notification s'affiche. 30 secondes par défaut.
+- Durée : Durée en seconde pendant laquelle la notification s'affiche. 30 secondes par défaut.
 - Position : Emplacement où s'afficheront les notifications. En bas à droite par défaut.
 - Taille du titre : 20 par défaut
 - Taille du message : 14 par défaut
@@ -67,9 +67,10 @@ Commandes créées pour voir des informations :
 - alert : affiche une notification de type Alert
 
 Les commandes sont personnalisables :
-- Title color : couleur du titre
-- Message color : couleur du texte du message
-- Background color : couleur de fond
+- Durée : durée en seconde. optionel, peux surcharger la valeur globale précédemment renseignée
+- Couleur titre : couleur du titre
+- Couleur message : couleur du texte du message
+- Couleur du fond : couleur de fond
 - URL : URL de l'image. Si vide, il n'y a pas d'image affichée.
   Exemple :
       https://www.pinclipart.com/picdir/big/85-851186_push-notifications-push-notification-icon-png-clipart.png

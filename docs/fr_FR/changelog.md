@@ -4,7 +4,11 @@
 >
 >Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte.
 
-# 04/05/2023
+# 04/05/2023 - BETA
+
+- NEW : Durée personalisable sur la commande
+
+# 04/05/2023 - STABLE
 
 - MAJ de la documentation pour la gestion de la transparence, choisir une couleur au format HEX, et l'image sans texte
 
