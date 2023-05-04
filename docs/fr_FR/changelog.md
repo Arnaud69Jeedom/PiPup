@@ -4,6 +4,10 @@
 >
 >Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte.
 
+# 04/05/2023
+
+- MAJ de la documentation pour la gestion de la transparence, choisir une couleur au format HEX, et l'image sans texte
+
 # 16/01/2023
 
 - DEBUG : garder les couleurs souhaitées sur les actions personnalisées
