@@ -162,29 +162,29 @@ class pipupCmd extends cmd
         // Lecture et Analyse de la configuration
 
         // IP TV
-        log::add('pipup', 'debug', ' Récupération iptv', __FILE__);
+        log::add('pipup', 'debug', ' Récupération iptv');
         $iptv = $eqlogic->getConfiguration('iptv');
         if ($iptv != '') {
             if (filter_var($iptv, FILTER_VALIDATE_IP)) {
                 $configuration->iptv = $iptv;
             } else {
-                log::add('pipup', 'error', ' Mauvaise valeur de iptv : ' . $iptv, __FILE__);
+                log::add('pipup', 'error', ' Mauvaise valeur de iptv : ' . $iptv);
                 return;
             }
         } else {
-            log::add('pipup', 'error', ' Pas de iptv', __FILE__);
+            log::add('pipup', 'error', ' Pas de iptv');
             return;
         }
         unset($iptv);
 
         // duration
-        log::add('pipup', 'debug', ' Récupération duration', __FILE__);
+        log::add('pipup', 'debug', ' Récupération duration');
         $duration = $eqlogic->getConfiguration('duration');
         if ($duration != '') {
             if (filter_var($duration, FILTER_VALIDATE_INT)) {
                 $configuration->duration = $duration;
             } else {
-                log::add('pipup', 'error', ' Mauvaise valeur de duration : ' . $duration, __FILE__);
+                log::add('pipup', 'error', ' Mauvaise valeur de duration : ' . $duration);
                 return;
             }
         } else {
@@ -193,13 +193,13 @@ class pipupCmd extends cmd
         unset($duration);
 
         // Position
-        log::add('pipup', 'debug', ' Récupération position', __FILE__);
+        log::add('pipup', 'debug', ' Récupération position');
         $position = $eqlogic->getConfiguration('position');
         if ($position != '') {
             if (filter_var($position, FILTER_VALIDATE_INT, ["options" => ["min_range" => 0,  "max_range" => 4]])  !== false) {
                 $configuration->position = $position;
             } else {
-                log::add('pipup', 'error', ' Mauvaise valeur de position : ' . $position, __FILE__);
+                log::add('pipup', 'error', ' Mauvaise valeur de position : ' . $position);
                 return;
             }
         } else {
@@ -208,13 +208,13 @@ class pipupCmd extends cmd
         unset($position);
 
         // titleSize
-        log::add('pipup', 'debug', ' Récupération titleSize', __FILE__);
+        log::add('pipup', 'debug', ' Récupération titleSize');
         $titleSize = $eqlogic->getConfiguration('titleSize');
         if ($titleSize != '') {
             if (filter_var($titleSize, FILTER_VALIDATE_INT)) {
                 $configuration->titleSize = $titleSize;
             } else {
-                log::add('pipup', 'error', ' Mauvaise valeur de titleSize : ' . $titleSize, __FILE__);
+                log::add('pipup', 'error', ' Mauvaise valeur de titleSize : ' . $titleSize);
                 return;
             }
         } else {
@@ -223,13 +223,13 @@ class pipupCmd extends cmd
         unset($titleSize);
 
         // messageSize
-        log::add('pipup', 'debug', ' Récupération messageSize', __FILE__);
+        log::add('pipup', 'debug', ' Récupération messageSize');
         $messageSize = $eqlogic->getConfiguration('messageSize');
         if ($messageSize != '') {
             if (filter_var($messageSize, FILTER_VALIDATE_INT)) {
                 $configuration->messageSize = $messageSize;
             } else {
-                log::add('pipup', 'error', ' Mauvaise valeur de messageSize : ' . $messageSize, __FILE__);
+                log::add('pipup', 'error', ' Mauvaise valeur de messageSize : ' . $messageSize);
                 return;
             }
         } else {
@@ -238,13 +238,13 @@ class pipupCmd extends cmd
         unset($messageSize);
 
         // imageSize
-        log::add('pipup', 'debug', ' Récupération imageSize', __FILE__);
+        log::add('pipup', 'debug', ' Récupération imageSize');
         $imageSize = $eqlogic->getConfiguration('imageSize');
         if ($imageSize != '') {
             if (filter_var($imageSize, FILTER_VALIDATE_INT)) {
                 $configuration->imageSize = $imageSize;
             } else {
-                log::add('pipup', 'error', ' Mauvaise valeur de imageSize : ' . $imageSize, __FILE__);
+                log::add('pipup', 'error', ' Mauvaise valeur de imageSize : ' . $imageSize);
                 return;
             }
         } else {
@@ -307,7 +307,7 @@ class pipupCmd extends cmd
         }
 
         $data = json_encode($tmp);
-        log::add('pipup', 'debug', ' data: ' . $data, __FILE__);
+        log::add('pipup', 'debug', ' data: ' . $data);
 
         $tuCurl = curl_init();
         curl_setopt($tuCurl, CURLOPT_URL, "http://" . $configuration->iptv . ":7979/notify");
@@ -328,19 +328,19 @@ class pipupCmd extends cmd
         $errno = curl_errno($tuCurl);
         if (!$errno) {
             $info = curl_getinfo($tuCurl);
-            // log::add('pipup', 'info', 'info : ' . json_encode($info), __FILE__);
+            // log::add('pipup', 'info', 'info : ' . json_encode($info));
 
             if ($info["http_code"] == 200) {
-                log::add('pipup', 'info', 'Took ' . $info['total_time'] . ' seconds to send a request to ' . $info['url'], __FILE__);
-                log::add('pipup', 'debug', ' data : ' . $tuData, __FILE__);
+                log::add('pipup', 'info', 'Took ' . $info['total_time'] . ' seconds to send a request to ' . $info['url']);
+                log::add('pipup', 'debug', ' data : ' . $tuData);
             } else {
-                log::add('pipup', 'error', ' data : ' . $tuData, __FILE__);
+                log::add('pipup', 'error', ' data : ' . $tuData);
             }
         } elseif ($errno == 7) {
             // CURLE_COULDNT_CONNECT
-            log::add('pipup', 'info', 'Connexion impossible sur :' . $configuration->iptv, __FILE__);
+            log::add('pipup', 'info', 'Connexion impossible sur :' . $configuration->iptv);
         } else {
-            log::add('pipup', 'error', 'erreurNo: ' . curl_errno($tuCurl) . ' : ' . curl_error($tuCurl), __FILE__);
+            log::add('pipup', 'error', 'erreurNo: ' . curl_errno($tuCurl) . ' : ' . curl_error($tuCurl));
         }
 
         curl_close($tuCurl);
@@ -349,10 +349,10 @@ class pipupCmd extends cmd
     // Exécution d'une commande  
     public function execute($_options = array())
     {
-        log::add('pipup', 'info', ' **** execute ****' . $this->getLogicalId(), __FILE__);
+        log::add('pipup', 'info', ' **** execute ****' . $this->getLogicalId());
 
         $eqlogic = $this->getEqLogic(); //récupère l'éqlogic de la commande $this
-        log::add('pipup', 'info', ' Objet : ' . $eqlogic->getName(), __FILE__);
+        log::add('pipup', 'info', ' Objet : ' . $eqlogic->getName());
 
         // Lecture et Analyse de la configuration
         $configuration = $this->getMyConfiguration();
