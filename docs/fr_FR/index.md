@@ -71,6 +71,7 @@ Les commandes sont personnalisables :
 - Couleur titre : couleur du titre
 - Couleur message : couleur du texte du message
 - Couleur du fond : couleur de fond
+- Type : type du média (image, web)
 - URL : URL de l'image. Si vide, il n'y a pas d'image affichée.
   Exemple :
       https://www.pinclipart.com/picdir/big/85-851186_push-notifications-push-notification-icon-png-clipart.png
