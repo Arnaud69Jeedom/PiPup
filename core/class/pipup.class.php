@@ -37,6 +37,12 @@ class pipup extends eqLogic
             if ($cmd->getLogicalId() == 'notify') {
                 log::add('pipup', 'debug', 'preSave cmd notify');
 
+                if (empty($cmd->getConfiguration('type_media'))) {
+                    log::add('pipup', 'debug', 'preSave cmd. notify. avant type_media');
+
+                    $cmd->setConfiguration('type_media', 'image');
+                    log::add('pipup', 'debug', 'preSave cmd. notify. apres type_media: ' . $cmd->getConfiguration('type_media'));
+                }
                 if (empty($cmd->getConfiguration('titleColor'))) {
                     log::add('pipup', 'debug', 'preSave cmd. notify. avant titlecolor');
 
@@ -51,6 +57,11 @@ class pipup extends eqLogic
                 }
                 if (empty($cmd->getConfiguration('url'))) {
                     $cmd->setConfiguration('url', 'https://www.pinclipart.com/picdir/big/85-851186_push-notifications-push-notification-icon-png-clipart.png');
+                }
+            } else {
+                if (empty($cmd->getConfiguration('type_media'))) {
+                    $cmd->setConfiguration('type_media', 'image');
+                    log::add('pipup', 'debug', 'preSave cmd. other. apres type_media: ' . $cmd->getConfiguration('type_media'));
                 }
             }
 
@@ -79,6 +90,7 @@ class pipup extends eqLogic
                 $notify->setName(__('notify', __FILE__));
                 $notify->setOrder(0);
 
+                $notify->setConfiguration('type_media', "image");
                 $notify->setConfiguration('titleColor', "#000000");
                 $notify->setConfiguration('messageColor', "#000000");
                 $notify->setConfiguration('backgroundColor', "#ffffff");
@@ -99,6 +111,7 @@ class pipup extends eqLogic
                 $alert->setName(__('alert', __FILE__));
                 $alert->setOrder(1);
 
+                $alert->setConfiguration('type_media', "image");
                 $alert->setConfiguration('titleColor', "#ff0000");
                 $alert->setConfiguration('messageColor', "#000000");
                 $alert->setConfiguration('backgroundColor', "#ffffff");
@@ -297,15 +310,44 @@ class pipupCmd extends cmd
             }
         }
 
-        if (!empty($cmd->getConfiguration('url'))) {
-            $image = new stdClass();
-            $image->uri = $cmd->getConfiguration('url');
-            $image->width = $configuration->imageSize;
-
-            $tmp->media = new StdClass();
-            $tmp->media->image = $image;
+        $type_media = $cmd->getConfiguration('type_media');
+        if (empty($type_media)) {
+            $type_media = "image";
         }
+        log::add('pipup', 'debug', ' type_media: ' . $type_media);
 
+        if (!empty($cmd->getConfiguration('url'))) {
+            switch ($type_media)  {
+                case 'image':
+                    $image = new stdClass();
+                    $image->uri = $cmd->getConfiguration('url');
+                    $image->width = $configuration->imageSize;
+
+                    $tmp->media = new StdClass();
+                    $tmp->media->image = $image;
+                    break;  
+                // case 'video':
+                    // Ne fonctionne pas
+                //     $video = new stdClass();
+                //     $video->uri = $cmd->getConfiguration('url');
+                //     $video->width = $configuration->imageSize;
+
+                //     $tmp->media = new StdClass();
+                //     $tmp->media->video = $video;
+                //     break;
+                case 'web':
+                    $url = new stdClass();
+                    $url->uri = $cmd->getConfiguration('url');
+                    $url->width = 640;
+                    $url->height = 480; 
+
+                    $tmp->media = new StdClass();
+                    $tmp->media->web = $url;
+                    
+                    break;
+            }
+        }
+        
         $data = json_encode($tmp);
         log::add('pipup', 'debug', ' data: ' . $data);
 

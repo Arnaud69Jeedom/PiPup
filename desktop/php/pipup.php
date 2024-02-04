@@ -225,7 +225,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
                         <thead>
                             <tr>
                                 <th style="width:210px;">{{Nom}}</th>
-                                <th style="width:210px;">{{Duréee}}</th>
+                                <th style="width:100px;">{{Durée}}</th>
+                                <th style="width:100px;">{{Type}}</th>
                                 <th style="width:120px;">{{Couleur titre}}</th>
                                 <th style="width:120px;">{{Couleur message}}</th>
                                 <th style="width:120px;">{{Coulor du fond}}</th>

@@ -41,6 +41,7 @@ function addCmdToTable(_cmd) {
     _cmd.subType = 'message';
   }
   var tr = '<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">';
+  // infos cachées
   tr += '<td>';
   tr += '<div class="input-group">';
   tr += '<span class="cmdAttr" data-l1key="id" style="display : none;"></span>';
@@ -48,38 +49,56 @@ function addCmdToTable(_cmd) {
   tr += '<span class="type" type="' + init(_cmd.type) + '" style="display:none;">' + jeedom.cmd.availableType() + '</span>';
   tr += '<span class="subType" subType="' + init(_cmd.subType) + '" style="display:none;"></span>';
 
+  // Name
   tr += '<input class="cmdAttr form-control input-sm" data-l1key="name" placeholder="{{Nom de la commande}}">';
   tr += '</div>';
   tr += '</td>';
 
+  // Duration
   tr += '<td>';
   tr += '<div class="input-group">';
   tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="duration">';
   tr += '</div>';
   tr += '</td>';
 
+  // Type
   tr += '<td>';
   tr += '<div class="input-group">';
-  tr += '<input class="cmdAttr form-control input-sm" placeholder="#000000" data-l1key="configuration" data-l2key="titleColor">';
+  tr += '<select class="cmdAttr form-control" data-l1key="configuration" data-l2key="type_media">';
+  tr += '<option value="image">{{Image}}</option>';
+  // tr += '<option value="video">{{Vidéo}}</option>';
+  tr += '<option value="web">{{Web}}</option>';
+  tr += '</select>';
   tr += '</div>';
   tr += '</td>';
 
+  // titleColor
+  tr += '<td>';
+  tr += '<div class="input-group">';
+  tr += '<input class="eqLogicAttr form-control input-sm" data-l1key="configuration" data-l2key="titleColor">';
+  tr += '</div>';
+  tr += '</td>';
+
+  // messageColor
   tr += '<td>';
   tr += '<div class="input-group">';
   tr += '<input class="cmdAttr form-control input-sm" placeholder="#000000" data-l1key="configuration" data-l2key="messageColor">';
   tr += '</div>';
   tr += '</td>';
 
+  // backgroundColor
   tr += '<td>';
   tr += '<div class="input-group">';
   tr += '<input class="cmdAttr form-control input-sm" placeholder="#ffffff" data-l1key="configuration" data-l2key="backgroundColor">';
   tr += '</div>';
   tr += '</td>';
 
+  // url
   tr += '<td>';
   tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="url">';
   tr += '</td>';
 
+  // Boutons
   tr += '<td>';
   if (is_numeric(_cmd.id)) {
      tr += '<a class="btn btn-default btn-xs cmdAction" data-action="configure"><i class="fas fa-cogs"></i></a> ';
