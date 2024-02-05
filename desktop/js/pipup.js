@@ -56,26 +56,22 @@ function addCmdToTable(_cmd) {
 
   // Duration
   tr += '<td>';
-  tr += '<div class="input-group">';
   tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="duration">';
-  tr += '</div>';
   tr += '</td>';
 
   // Type
   tr += '<td>';
-  tr += '<div class="input-group">';
   tr += '<select class="cmdAttr form-control" data-l1key="configuration" data-l2key="type_media">';
   tr += '<option value="image">{{Image}}</option>';
   // tr += '<option value="video">{{Vidéo}}</option>';
   tr += '<option value="web">{{Web}}</option>';
   tr += '</select>';
-  tr += '</div>';
   tr += '</td>';
 
   // titleColor
   tr += '<td>';
   tr += '<div class="input-group">';
-  tr += '<input class="eqLogicAttr form-control input-sm" data-l1key="configuration" data-l2key="titleColor">';
+  tr += '<input class="eqLogicAttr form-control input-sm" placeholder="#000000" data-l1key="configuration" data-l2key="titleColor">';
   tr += '</div>';
   tr += '</td>';
 

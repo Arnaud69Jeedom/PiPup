@@ -55,6 +55,8 @@ Cet onglet permet de définir l'équipement :
 - Taille du titre : 20 par défaut
 - Taille du message : 14 par défaut
 - Taille de l'image : 240 par défaut
+- Web : largeur : 640 par défaut
+- Web : hauteur : 480 par défaut
 
 ## Commandes
 
@@ -68,10 +70,10 @@ Commandes créées pour voir des informations :
 
 Les commandes sont personnalisables :
 - Durée : durée en seconde. optionel, peux surcharger la valeur globale précédemment renseignée
+- Type : type du média (image, web)
 - Couleur titre : couleur du titre
 - Couleur message : couleur du texte du message
 - Couleur du fond : couleur de fond
-- Type : type du média (image, web)
 - URL : URL de l'image. Si vide, il n'y a pas d'image affichée.
   Exemple :
       https://www.pinclipart.com/picdir/big/85-851186_push-notifications-push-notification-icon-png-clipart.png
@@ -86,5 +88,5 @@ Exemple : la valeur du fond peut-être #FFFFFF (blanc) ou #CCFFFFFF (blanc avec 
 Note 2 : Pour trouver la couleur souhaité au format HEX, il est possible d'utiliser des site web du genre :
 https://www.peko-step.com/fr/tool/tfcolor.html
 
-Note 3 : Il est possible de faire juste apparaitre l'icône.
+Note 3 : Il est possible de faire juste apparaitre l'icône ou la page Web.
 Il suffit de ne pas renseigner le titre le message.

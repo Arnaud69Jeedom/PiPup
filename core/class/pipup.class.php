@@ -265,6 +265,37 @@ class pipupCmd extends cmd
         }
         unset($imageSize);
 
+        // webWidth
+        log::add('pipup', 'debug', ' Récupération webWidth');
+        $webWidth = $eqlogic->getConfiguration('webWidth');
+        if ($webWidth != '') {
+            if (filter_var($webWidth, FILTER_VALIDATE_INT)) {
+                $configuration->webWidth = $webWidth;
+            } else {
+                log::add('pipup', 'error', ' Mauvaise valeur de webWidth : ' . $webWidth);
+                return;
+            }
+        } else {
+            $configuration->webWidth = 640;
+        }
+        unset($webWidth);
+
+        // webHeight
+        log::add('pipup', 'debug', ' Récupération webHeight');
+        $webHeight = $eqlogic->getConfiguration('webHeight');
+        if ($webHeight != '') {
+            if (filter_var($webHeight, FILTER_VALIDATE_INT)) {
+                $configuration->webHeight = $webHeight;
+            } else {
+                log::add('pipup', 'error', ' Mauvaise valeur de webHeight : ' . $webHeight);
+                return;
+            }
+        } else {
+            $configuration->webHeight = 480;
+        }
+        unset($webHeight);
+
+
         return $configuration;
     }
 
@@ -338,8 +369,19 @@ class pipupCmd extends cmd
                 case 'web':
                     $url = new stdClass();
                     $url->uri = $cmd->getConfiguration('url');
-                    $url->width = 640;
-                    $url->height = 480; 
+
+                    $width = $configuration->webWidth;
+                    log::add('pipup', 'debug', ' webWidth: ' . $width);
+                    if (empty($width)) {
+                        $width = 640;
+                    }
+                    $height = $configuration->webHeight;
+                    log::add('pipup', 'debug', ' webHeight: ' . $height);
+                    if (empty($height)) {
+                        $height = 480;
+                    }
+                    $url->width = $width;
+                    $url->height = $height;
 
                     $tmp->media = new StdClass();
                     $tmp->media->web = $url;

@@ -209,6 +209,28 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">{{Web : largeur}}</label>
+                                    <div class="col-sm-2">
+                                        <div class="input-group">
+                                            <input type="number" class="eqLogicAttr form-control tooltips"
+                                                placeholder="640" 
+                                                data-l1key="configuration" data-l2key="webWidth" data-concat="1" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">{{Web : hauteur}}</label>
+                                    <div class="col-sm-2">
+                                        <div class="input-group">
+                                            <input type="number" class="eqLogicAttr form-control tooltips"
+                                                placeholder="480" 
+                                                data-l1key="configuration" data-l2key="webHeight" data-concat="1" />
+                                        </div>
+                                    </div>
+                                </div>
                             </fieldset>
                         </form>
                     </div>
@@ -224,12 +246,12 @@ $eqLogics = eqLogic::byType($plugin->getId());
                     <table id="table_cmd" class="table table-bordered table-condensed">
                         <thead>
                             <tr>
-                                <th style="width:210px;">{{Nom}}</th>
-                                <th style="width:100px;">{{Durée}}</th>
-                                <th style="width:100px;">{{Type}}</th>
+                                <th style="width:180px;">{{Nom}}</th>
+                                <th style="width:120px;">{{Durée}}</th>
+                                <th style="width:120px;">{{Type}}</th>
                                 <th style="width:120px;">{{Couleur titre}}</th>
                                 <th style="width:120px;">{{Couleur message}}</th>
-                                <th style="width:120px;">{{Coulor du fond}}</th>
+                                <th style="width:120px;">{{Couleur du fond}}</th>                                
                                 <th>{{URL}}</th>
                                 <th style="width:150px;">{{Action}}</th>
                             </tr>
