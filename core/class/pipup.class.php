@@ -357,15 +357,15 @@ class pipupCmd extends cmd
                     $tmp->media = new StdClass();
                     $tmp->media->image = $image;
                     break;  
-                // case 'video':
+                case 'video':
                     // Ne fonctionne pas
-                //     $video = new stdClass();
-                //     $video->uri = $cmd->getConfiguration('url');
-                //     $video->width = $configuration->imageSize;
+                    $video = new stdClass();
+                    $video->uri = $cmd->getConfiguration('url');
+                    $video->width = $configuration->imageSize;
 
-                //     $tmp->media = new StdClass();
-                //     $tmp->media->video = $video;
-                //     break;
+                    $tmp->media = new StdClass();
+                    $tmp->media->video = $video;
+                    break;
                 case 'web':
                     $url = new stdClass();
                     $url->uri = $cmd->getConfiguration('url');

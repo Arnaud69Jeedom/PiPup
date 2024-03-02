@@ -63,7 +63,7 @@ function addCmdToTable(_cmd) {
   tr += '<td>';
   tr += '<select class="cmdAttr form-control" data-l1key="configuration" data-l2key="type_media">';
   tr += '<option value="image">{{Image}}</option>';
-  // tr += '<option value="video">{{Vidéo}}</option>';
+  tr += '<option value="video">{{Vidéo}}</option>';
   tr += '<option value="web">{{Web}}</option>';
   tr += '</select>';
   tr += '</td>';
